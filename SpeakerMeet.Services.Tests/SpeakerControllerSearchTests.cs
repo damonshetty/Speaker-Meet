@@ -7,45 +7,43 @@ namespace SpeakerMeet.Services.Tests
 {
     public class SpeakerControllerSearchTests
     {
-        [Fact]
-        public void ItExists()
+        private readonly SpeakerController _controller;
+
+        public SpeakerControllerSearchTests()
         {
-            var controller = new SpeakerController();
+            _controller = new SpeakerController();
         }
         
         [Fact]
         public void ItHasSearch()
         {
             //Arrange
-            var controller = new SpeakerController();
+
             
             //Act
-            var result = controller.Search("Jos");
+            var result = _controller.Search("Jos");
         }
         
         [Fact]
         public void ItReturnsOkObjectResult()
         {
             //Arrange
-            var controller = new SpeakerController();
 
             //Act
-            var result = controller.Search("Jos");
+            var result = _controller.Search("Jos");
 
             //Assert
             Assert.NotNull(result);
             Assert.IsType<OkObjectResult>(result);
         }
 
-
         [Fact]
         public void ItReturnsCollectionOfSpeakers()
         {
             //Arrange
-            var controller = new SpeakerController();
 
             //Act
-            var result = controller.Search("Jos") as OkObjectResult;
+            var result = _controller.Search("Jos") as OkObjectResult;
 
             //Assert
             Assert.NotNull(result);
