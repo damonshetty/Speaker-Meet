@@ -1,19 +1,41 @@
-﻿using System;
-using Xunit;
-using SpeakerMeet;
+﻿using Xunit;
 using SpeakerMeet.API.Controllers;
 
 namespace SpeakerMeet.Services.Tests
 {
     public class SpeakerControllerSearchTests
-    {
+    {   
+        //[Fact]
+        //public void ItExists()
+        //{
+        //    var controller = new SpeakerMeetController();
+        //}
+
         
         [Fact]
-        public void ItExists()
+        public void ItHasSearch()
         {
-            var controller = new SpeakerMeetController();
+            //Arrange
+            var controller = new SpeakerController();
+            
+            //Act
+            var result = controller.Search("Jos");
         }
 
+
+        [Fact]
+        public void ItReturnsOkObjectResult()
+        {
+            //Arrange
+            var controller = new SpeakerController();
+
+            //Act
+            var result = controller.Search("Jos");
+
+            //Assert
+            Assert.NotNull(result);
+            //Assert.IsType<OkObjectResult>(result);
+        }
 
     }
 }
