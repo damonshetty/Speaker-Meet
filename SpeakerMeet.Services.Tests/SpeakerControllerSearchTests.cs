@@ -3,16 +3,34 @@ using SpeakerMeet.API.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using SpeakerMeet.Services.Interfaces;
+using Moq;
+using SpeakerMeet.DTO;
 
-namespace SpeakerMeet.Services.Tests
+namespace SpeakerMeet.API.Tests
 {
     public class SpeakerControllerSearchTests
     {
         private readonly SpeakerController _controller;
+        private static Mock<ISpeakerService> _speakerServiceMock;
+        private readonly List<Speaker> _speakers;
 
         public SpeakerControllerSearchTests()
         {
-            _controller = new SpeakerController();
+            _speakers = new List<Speaker> { new Speaker
+            {
+                Name = "test"
+            } };
+
+            // define the mock
+            _speakerServiceMock = new Mock<ISpeakerService>();
+
+            // when search is called, return list of speakers containing speaker
+            _speakerServiceMock.Setup(x => x.Search(It.IsAny<string>()))
+                .Returns(() => _speakers);
+
+
+            _controller = new SpeakerController(_speakerServiceMock.Object);
         }
         
         [Fact]
@@ -115,6 +133,20 @@ namespace SpeakerMeet.Services.Tests
 
         }
 
+
+        [Fact]
+        public void ItAcceptsService()
+        {
+            //Arrange
+            ISpeakerService testSpeakerService = new TestSpeakerService();
+
+            //Act
+            var controller = new SpeakerController(testSpeakerService);
+
+            //Assert
+            Assert.NotNull(controller);
+
+        }
 
     }
 }

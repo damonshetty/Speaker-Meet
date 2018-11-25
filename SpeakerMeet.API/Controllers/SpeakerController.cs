@@ -3,9 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SpeakerMeet.Services.Interfaces;
+using SpeakerMeet.DTO;
 
 namespace SpeakerMeet.API.Controllers
 {
+    public class SpeakerController : Controller
+    {
+        public SpeakerController(ISpeakerService speakerService)
+        {
+
+        }
+
+        public IActionResult Search(string searchString)
+        {
+            var hardCodedSpeakers = new List<Speaker>
+            {
+                new Speaker {Name = "Josh"},
+                new Speaker {Name = "Joshua"},
+                new Speaker {Name = "Joseph"},
+                new Speaker {Name = "Bill"},
+            };
+
+            var speakers = hardCodedSpeakers
+    .Where(x => x.Name.StartsWith(searchString, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            return Ok(speakers);
+        }
+    }
+
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
@@ -43,27 +69,5 @@ namespace SpeakerMeet.API.Controllers
         }
     }
     
-    public class SpeakerController : Controller
-    {
-        public IActionResult Search(string searchString)
-        {
-            var hardCodedSpeakers = new List<Speaker>
-            {
-                new Speaker {Name = "Josh"},
-                new Speaker {Name = "Joshua"},
-                new Speaker {Name = "Joseph"},
-                new Speaker {Name = "Bill"},
-            };
 
-            var speakers = hardCodedSpeakers
-    .Where(x => x.Name.StartsWith(searchString, StringComparison.OrdinalIgnoreCase)).ToList();
-
-            return Ok(speakers);
-        }
-    }
-
-    public class Speaker
-    {
-        public string Name { get; set; }
-    }
 }
