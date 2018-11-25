@@ -74,8 +74,7 @@ namespace SpeakerMeet.Services.Tests
         public void GivenCaseInsensitiveMatchThenSpeakerInCollection()
         {
             //Arrange
-
-
+            
             //Act
             var result = _controller.Search("joshua") as OkObjectResult;
 
@@ -90,8 +89,7 @@ namespace SpeakerMeet.Services.Tests
         public void GivenNoMatchThenEmptyCollection()
         {
             //Arrange
-
-
+            
             //Act
             var result = _controller.Search("ZZZ") as OkObjectResult;
 
@@ -99,10 +97,23 @@ namespace SpeakerMeet.Services.Tests
             var speakers = ((IEnumerable<Speaker>)result.Value).ToList();
             Assert.Empty(speakers);
             Assert.Equal(0, speakers.Count);
-
-
         }
 
+        //Test multiple results returned if begins with search term
+        [Fact]
+        public void Given3MatchThenCollectionWith3Speakers()
+        {
+            //Act
+            var result = _controller.Search("jos") as OkObjectResult;
+
+            //Assert
+            var speakers = ((IEnumerable<Speaker>)result.Value).ToList();
+            Assert.Equal(3, speakers.Count);
+            Assert.Contains(speakers, s => s.Name == "Josh");
+            Assert.Contains(speakers, s => s.Name == "Joshua");
+            Assert.Contains(speakers, s => s.Name == "Joseph");
+
+        }
 
 
     }
