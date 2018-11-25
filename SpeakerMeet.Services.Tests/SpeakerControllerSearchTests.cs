@@ -68,5 +68,26 @@ namespace SpeakerMeet.Services.Tests
             Assert.Equal("Joshua", speakers[0].Name);
         }
 
+
+        //Ensure search is not case senstitive
+        [Fact]
+        public void GivenCaseInsensitiveMatchThenSpeakerInCollection()
+        {
+            //Arrange
+
+
+            //Act
+            var result = _controller.Search("joshua") as OkObjectResult;
+
+            //Assert
+            var speakers = ((IEnumerable<Speaker>)result.Value).ToList();
+            Assert.Equal(1, speakers.Count);
+            Assert.Single(speakers);
+            Assert.Equal("Joshua", speakers[0].Name);
+        }
+
+
+
+
     }
 }
