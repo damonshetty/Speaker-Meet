@@ -86,6 +86,22 @@ namespace SpeakerMeet.Services.Tests
             Assert.Equal("Joshua", speakers[0].Name);
         }
 
+        //Check what happens if no match - is an empty collection returned?
+        public void GivenNoMatchThenEmptyCollection()
+        {
+            //Arrange
+
+
+            //Act
+            var result = _controller.Search("ZZZ") as OkObjectResult;
+
+            //Assert
+            var speakers = ((IEnumerable<Speaker>)result.Value).ToList();
+            Assert.Empty(speakers);
+            Assert.Equal(0, speakers.Count);
+
+
+        }
 
 
 
