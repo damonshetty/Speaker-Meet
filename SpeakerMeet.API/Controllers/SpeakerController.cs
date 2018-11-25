@@ -42,8 +42,7 @@ namespace SpeakerMeet.API.Controllers
         {
         }
     }
-
-
+    
     public class SpeakerController : Controller
     {
         public IActionResult Search(string searchString)

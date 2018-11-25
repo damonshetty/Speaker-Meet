@@ -2,6 +2,7 @@
 using SpeakerMeet.API.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SpeakerMeet.Services.Tests
 {
@@ -18,8 +19,7 @@ namespace SpeakerMeet.Services.Tests
         public void ItHasSearch()
         {
             //Arrange
-
-            
+                        
             //Act
             var result = _controller.Search("Jos");
         }
@@ -49,6 +49,23 @@ namespace SpeakerMeet.Services.Tests
             Assert.NotNull(result);
             Assert.NotNull(result.Value);
             Assert.IsType<List<Speaker>>(result.Value);
+        }
+
+
+        //Test exact match terms
+        [Fact]
+        public void GivenExactMatchThenOneSpeakerInCollection()
+        {
+            //Arrange
+            
+            //Act
+            var result = _controller.Search("Joshua") as OkObjectResult;
+            
+            //Assert
+            var speakers = ((IEnumerable<Speaker>)result.Value).ToList();
+            Assert.Equal(1, speakers.Count);
+            Assert.Single(speakers);
+            Assert.Equal("Joshua", speakers[0].Name);
         }
 
     }
