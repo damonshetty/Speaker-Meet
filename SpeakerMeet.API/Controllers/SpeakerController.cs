@@ -8,6 +8,7 @@ using SpeakerMeet.DTO;
 
 namespace SpeakerMeet.API.Controllers
 {
+    [Route("api/[controller]")]
     public class SpeakerController : Controller
     {
         private readonly ISpeakerService _speakerService;
@@ -17,21 +18,12 @@ namespace SpeakerMeet.API.Controllers
             _speakerService = speakerService;
         }
 
+        // GET api/values
+        [HttpGet]
         [Route("search")]
         public IActionResult Search(string searchString)
         {
-            var hardCodedSpeakers = new List<Speaker>
-            {
-                new Speaker {Name = "Josh"},
-                new Speaker {Name = "Joshua"},
-                new Speaker {Name = "Joseph"},
-                new Speaker {Name = "Bill"},
-            };
-
-            _speakerService.Search("foo");
-
-            var speakers = hardCodedSpeakers
-    .Where(x => x.Name.StartsWith(searchString, StringComparison.OrdinalIgnoreCase)).ToList();
+            var speakers = _speakerService.Search(searchString);
 
             return Ok(speakers);
         }

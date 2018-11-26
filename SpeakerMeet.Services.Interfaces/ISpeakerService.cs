@@ -1,5 +1,5 @@
-﻿using SpeakerMeet.DTO;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using SpeakerMeet.DTO;
 
 namespace SpeakerMeet.Services.Interfaces
 {

@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpeakerMeet.API.Tests", "Sp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpeakerMeet.API", "SpeakerMeet.API\SpeakerMeet.API.csproj", "{45AE0819-26F7-49D4-B968-F84FBFC023DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeakerMeet.Services.Interfaces", "SpeakerMeet.Services\SpeakerMeet.Services.Interfaces.csproj", "{2E959FB2-66E1-42D6-833F-783FA02D3005}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpeakerMeet.DTO", "SpeakerMeet.DTO\SpeakerMeet.DTO.csproj", "{C45E6912-BF64-4688-93D9-4E1A82EE1BC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeakerMeet.DTO", "SpeakerMeet.DTO\SpeakerMeet.DTO.csproj", "{C45E6912-BF64-4688-93D9-4E1A82EE1BC8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeakerMeet.Services.Interfaces", "SpeakerMeet.Services.Interfaces\SpeakerMeet.Services.Interfaces.csproj", "{907555CC-B1A7-4CFE-BC66-E0C5375FE869}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeakerMeet.Services", "SpeakerMeet.Services\SpeakerMeet.Services.csproj", "{9C847696-0CB0-4E44-8DE3-F056E7BE486F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +27,18 @@ Global
 		{45AE0819-26F7-49D4-B968-F84FBFC023DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45AE0819-26F7-49D4-B968-F84FBFC023DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45AE0819-26F7-49D4-B968-F84FBFC023DE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E959FB2-66E1-42D6-833F-783FA02D3005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E959FB2-66E1-42D6-833F-783FA02D3005}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E959FB2-66E1-42D6-833F-783FA02D3005}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E959FB2-66E1-42D6-833F-783FA02D3005}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C45E6912-BF64-4688-93D9-4E1A82EE1BC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C45E6912-BF64-4688-93D9-4E1A82EE1BC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C45E6912-BF64-4688-93D9-4E1A82EE1BC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C45E6912-BF64-4688-93D9-4E1A82EE1BC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{907555CC-B1A7-4CFE-BC66-E0C5375FE869}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{907555CC-B1A7-4CFE-BC66-E0C5375FE869}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{907555CC-B1A7-4CFE-BC66-E0C5375FE869}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{907555CC-B1A7-4CFE-BC66-E0C5375FE869}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C847696-0CB0-4E44-8DE3-F056E7BE486F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C847696-0CB0-4E44-8DE3-F056E7BE486F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C847696-0CB0-4E44-8DE3-F056E7BE486F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C847696-0CB0-4E44-8DE3-F056E7BE486F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -17,10 +17,12 @@ namespace SpeakerMeet.API.Tests
 
         public SpeakerControllerSearchTests()
         {
-            _speakers = new List<Speaker> { new Speaker
-            {
-                Name = "test"
-            } };
+            _speakers = new List<Speaker> {
+                new Speaker{ Name = "Josh"},
+                new Speaker{ Name = "Joshua"},
+                new Speaker{ Name = "Joseph"},
+                new Speaker{ Name = "Bill"},
+            };
 
             // define the mock
             _speakerServiceMock = new Mock<ISpeakerService>();
@@ -71,7 +73,7 @@ namespace SpeakerMeet.API.Tests
 
 
         //Test exact match terms
-        [Fact]
+        [Fact(Skip = "No longer needed")]
         public void GivenExactMatchThenOneSpeakerInCollection()
         {
             //Arrange
@@ -88,7 +90,7 @@ namespace SpeakerMeet.API.Tests
 
 
         //Ensure search is not case senstitive
-        [Fact]
+        [Fact(Skip = "No longer needed")]
         public void GivenCaseInsensitiveMatchThenSpeakerInCollection()
         {
             //Arrange
@@ -118,7 +120,7 @@ namespace SpeakerMeet.API.Tests
         }
 
         //Test multiple results returned if begins with search term
-        [Fact]
+        [Fact(Skip = "No longer needed")]
         public void Given3MatchThenCollectionWith3Speakers()
         {
             //Act
@@ -159,7 +161,43 @@ namespace SpeakerMeet.API.Tests
             _speakerServiceMock.Verify(mock => mock.Search(It.IsAny<string>()), Times.Once);
         }
 
+        [Fact]
+        public void GivenSearchStringThenSpeakerServiceSearchCalledWithString()
+        {
+            //Arrange
+            var searchString = "jos";
+
+            //Act
+            _controller.Search(searchString);
+
+            //Assert
+            _speakerServiceMock.Verify(mock => mock.Search(searchString), Times.Once());
+        }
+
+
+        //Ensure results of the search method from the SpeakerService are what is being returned from the action result
+        [Fact]
+        public void GivenSpeakServiceThenResultsReturned()
+        {
+            //Arrange
+            var searchString = "jos";
+
+            //Act
+            var result = _controller.Search(searchString) as OkObjectResult;
+
+            //Assert
+            Assert.NotNull(result);
+            var speakers = ((IEnumerable<Speaker>)result.Value).ToList();
+            Assert.Equal(_speakers, speakers);
+        }
+
+
+
+
+
+
 
 
     }
+
 }
