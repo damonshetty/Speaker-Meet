@@ -10,11 +10,14 @@ namespace SpeakerMeet.API.Controllers
 {
     public class SpeakerController : Controller
     {
+        private readonly ISpeakerService _speakerService;
+
         public SpeakerController(ISpeakerService speakerService)
         {
-
+            _speakerService = speakerService;
         }
 
+        [Route("search")]
         public IActionResult Search(string searchString)
         {
             var hardCodedSpeakers = new List<Speaker>
@@ -24,6 +27,8 @@ namespace SpeakerMeet.API.Controllers
                 new Speaker {Name = "Joseph"},
                 new Speaker {Name = "Bill"},
             };
+
+            _speakerService.Search("foo");
 
             var speakers = hardCodedSpeakers
     .Where(x => x.Name.StartsWith(searchString, StringComparison.OrdinalIgnoreCase)).ToList();

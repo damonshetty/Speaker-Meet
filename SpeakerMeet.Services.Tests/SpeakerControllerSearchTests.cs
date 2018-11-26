@@ -132,8 +132,7 @@ namespace SpeakerMeet.API.Tests
             Assert.Contains(speakers, s => s.Name == "Joseph");
 
         }
-
-
+        
         [Fact]
         public void ItAcceptsService()
         {
@@ -145,8 +144,22 @@ namespace SpeakerMeet.API.Tests
 
             //Assert
             Assert.NotNull(controller);
-
         }
+
+        //Try mocking framework to verify the search method of SpeakerService is called once
+        [Fact]
+        public void ItCallsServiceOnce()
+        {
+            //Arrange
+
+            //Act
+            _controller.Search("jos");
+
+            //Assert
+            _speakerServiceMock.Verify(mock => mock.Search(It.IsAny<string>()), Times.Once);
+        }
+
+
 
     }
 }
