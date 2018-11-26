@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.1" />
     <PackageReference Include="Moq" Version="4.10.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
@@ -18,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SpeakerMeet.API\SpeakerMeet.API.csproj" />
     <ProjectReference Include="..\SpeakerMeet.DTO\SpeakerMeet.DTO.csproj" />
+    <ProjectReference Include="..\SpeakerMeet.Services.Interfaces\SpeakerMeet.Services.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

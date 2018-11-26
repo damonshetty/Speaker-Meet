@@ -34,16 +34,16 @@ namespace SpeakerMeet.API.Tests
 
             _controller = new SpeakerController(_speakerServiceMock.Object);
         }
-        
+
         [Fact]
         public void ItHasSearch()
         {
             //Arrange
-                        
+
             //Act
             var result = _controller.Search("Jos");
         }
-        
+
         [Fact]
         public void ItReturnsOkObjectResult()
         {
@@ -77,10 +77,10 @@ namespace SpeakerMeet.API.Tests
         public void GivenExactMatchThenOneSpeakerInCollection()
         {
             //Arrange
-            
+
             //Act
             var result = _controller.Search("Joshua") as OkObjectResult;
-            
+
             //Assert
             var speakers = ((IEnumerable<Speaker>)result.Value).ToList();
             Assert.Equal(1, speakers.Count);
@@ -94,7 +94,7 @@ namespace SpeakerMeet.API.Tests
         public void GivenCaseInsensitiveMatchThenSpeakerInCollection()
         {
             //Arrange
-            
+
             //Act
             var result = _controller.Search("joshua") as OkObjectResult;
 
@@ -106,10 +106,11 @@ namespace SpeakerMeet.API.Tests
         }
 
         //Check what happens if no match - is an empty collection returned?
+        [Fact(Skip = "No longer needed")]
         public void GivenNoMatchThenEmptyCollection()
         {
             //Arrange
-            
+
             //Act
             var result = _controller.Search("ZZZ") as OkObjectResult;
 
@@ -134,7 +135,7 @@ namespace SpeakerMeet.API.Tests
             Assert.Contains(speakers, s => s.Name == "Joseph");
 
         }
-        
+
         [Fact]
         public void ItAcceptsService()
         {
