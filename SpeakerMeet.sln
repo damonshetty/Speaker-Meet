@@ -13,7 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpeakerMeet.Services", "Spe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpeakerMeet.API.Tests", "SpeakerMeet.API.Tests\SpeakerMeet.API.Tests.csproj", "{0740521E-F764-47D3-A1D0-1E1F2C66D087}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeakerMeet.Services.Tests", "SpeakerMeet.Services.Tests\SpeakerMeet.Services.Tests.csproj", "{17AE68BD-BDDD-4A4B-952A-9E068C83E552}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpeakerMeet.Services.Tests", "SpeakerMeet.Services.Tests\SpeakerMeet.Services.Tests.csproj", "{17AE68BD-BDDD-4A4B-952A-9E068C83E552}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeakerMeet.DTO.Tests", "SpeakerMeet.DTO.Tests\SpeakerMeet.DTO.Tests.csproj", "{02E40606-F76A-415B-BAEB-8404ECCF3787}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeakerMeet.Repositories.Interfaces", "SpeakerMeet.Repositories.Interfaces\SpeakerMeet.Repositories.Interfaces.csproj", "{0BCC835F-1D0C-4299-8DD5-A0648E62FEE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{17AE68BD-BDDD-4A4B-952A-9E068C83E552}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17AE68BD-BDDD-4A4B-952A-9E068C83E552}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17AE68BD-BDDD-4A4B-952A-9E068C83E552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02E40606-F76A-415B-BAEB-8404ECCF3787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02E40606-F76A-415B-BAEB-8404ECCF3787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02E40606-F76A-415B-BAEB-8404ECCF3787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02E40606-F76A-415B-BAEB-8404ECCF3787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BCC835F-1D0C-4299-8DD5-A0648E62FEE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BCC835F-1D0C-4299-8DD5-A0648E62FEE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BCC835F-1D0C-4299-8DD5-A0648E62FEE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BCC835F-1D0C-4299-8DD5-A0648E62FEE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

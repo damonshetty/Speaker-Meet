@@ -14,8 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SpeakerMeet.DTO\SpeakerMeet.DTO.csproj" />
-    <ProjectReference Include="..\SpeakerMeet.Services.Interfaces\SpeakerMeet.Services.Interfaces.csproj" />
-    <ProjectReference Include="..\SpeakerMeet.Services\SpeakerMeet.Services.csproj" />
   </ItemGroup>
 
 </Project>

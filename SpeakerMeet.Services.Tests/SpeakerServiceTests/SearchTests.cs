@@ -39,6 +39,7 @@ namespace SpeakerMeet.Services.Tests.SpeakerServiceTests
         {
             //Arrange
             var speakerService = new SpeakerService();
+
             //Act
             var result = speakerService.Search("test");
 
@@ -105,7 +106,6 @@ namespace SpeakerMeet.Services.Tests.SpeakerServiceTests
             Assert.Empty(speakers);
             Assert.Equal(0, speakers.Count);
         }
-
 
         [Fact]
         public void Given3MatchThenCollectionWith3Speakers()
